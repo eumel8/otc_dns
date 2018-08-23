@@ -10,7 +10,7 @@
   register: zonelist_public
   retries: "{{ uri_retries }}"
   delay: "{{ uri_delay }}"
-  until: zonelist_piblic.status == 200
+  until: zonelist_public.status == 200
   changed_when: false
 
 - name: Send request to API (list private zones)
