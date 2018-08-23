@@ -1,5 +1,19 @@
 ---
 - hosts: localhost
-  remote_user: root
+  gather_facts: no
+  vars_files:
+   - "vars/tenant.yml"
+  vars:
+    # VPC,Subnet,Secgroup,ECS,EIP
+    # availability_zone: "{{ vms[ecs_name].availability_zone | default(default.availability_zone) }}"
+    # vpc_name: "{{ vms[ecs_name].vpc_name  }}"
+    # DNS vars
+    zone_description: "{{ dnszones[zone_name].zone_description }}"
+    zone_type: "{{ dnszones[zone_name].zone_type }}"
+    zone_email: "{{ dnszones[zone_name].zone_email }}"
+    zone_ttl: "{{ dnszones[zone_name].zone_ttl }}"
+    zone_records: "{{ dnszonerecords[zone_name] }}"
+
   roles:
-    - otc_dns
+    - role: "otc_auth"
+    - role: "otc_dns"
