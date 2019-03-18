@@ -1,6 +1,7 @@
 ---
 - name: Call dig to catch zone information
   shell: dig +noall +answer {{ zone_name }} @{{ dns_server }} axfr | grep -E '(\s+)(A|AAAA|CNAME|MX)'
+  pipefail: True
   register: zone_data
 
 - name: Create dns.ini file
