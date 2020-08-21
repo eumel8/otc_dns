@@ -16,6 +16,7 @@
     dest: ./dns.ini
     force: yes
     backup: yes
+    mode: 0644
   when: config == "ini"
 
 - name: Create dns.yml file
@@ -24,6 +25,7 @@
     dest: ./dns.yml
     force: yes
     backup: yes
+    mode: 0644
   when: config == "yml"
 
 - name: Create dns.json file
@@ -32,4 +34,5 @@
     dest: ./dns.json
     force: yes
     backup: yes
+    mode: 0644
   when: config == "json"
