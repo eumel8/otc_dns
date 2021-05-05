@@ -17,5 +17,6 @@
   changed_when: false
   when: zone_id is defined
 
-- debug: var=zone.json
+- name: zone
+  debug: var=zone.json
   when: zone is defined
