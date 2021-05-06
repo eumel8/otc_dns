@@ -41,5 +41,6 @@
   when:
     - eip_id is defined and eip_id|length != 0
 
-- debug:
+- name: ptrrecord
+  debug:
     msg: "{{ ptrrecord }}"
